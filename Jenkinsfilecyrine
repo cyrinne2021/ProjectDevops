@@ -25,5 +25,18 @@ pipeline {
 			sh 'mvn compile'
 			  }
 		  }
+		 stage('SonarQube') {
+		 steps {
+			 withSonarQubeEnv('sonarqube-8.9.7'){
+			sh 'mvn sonar:sonar'
+			 }
+			
+			  }
+		  }
+		stage('Nexus') {
+		 steps {
+			sh 'mvn deploy -DskipTests'
+			  }
+		  }
 }
 }
