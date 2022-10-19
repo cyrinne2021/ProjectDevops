@@ -9,5 +9,20 @@ pipeline {
 			 credentialsId:'012f7852-4790-4f58-8e42-6d991d2ad3d7';
 			  }
 		  }
+		  stage('maven clean') {
+		 steps {
+			sh 'mvn clean'
+			  }
+		  }
+		stage('maven package') {
+		 steps {
+			sh 'mvn package'
+			  }
+		  }
+		stage('maven compile') {
+		 steps {
+			sh 'mvn compile'
+			  }
+		  }
 }
 }
