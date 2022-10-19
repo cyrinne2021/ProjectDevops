@@ -1,0 +1,13 @@
+pipeline {
+	agent any
+	stages {
+		stage('Checkout GIT') {
+		 steps {
+			echo 'Pulling...';
+			 git branch: 'cyrine',
+			 url : 'https://github.com/cyrinne2021/ProjectDevops',
+			 credentialsId:'8feda67e-6b0d-4fb6-a35a-60d892fcd8fc';
+			  }
+		  }
+}
+}
