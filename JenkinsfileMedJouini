@@ -1,0 +1,13 @@
+pipeline {
+	agent any
+	stages {
+		stage('Checkout GIT') {
+		 steps {
+			echo 'Pulling...';
+			 git branch: 'MedJouini',
+			 url : 'https://github.com/cyrinne2021/ProjectDevops',
+			 credentialsId:'012f7852-4790-4f58-8e42-6d991d2ad3d7';
+			  }
+		  }
+}
+}
