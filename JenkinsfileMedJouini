@@ -24,6 +24,11 @@ pipeline {
 			sh 'mvn compile'
 			  }
 		  }
+		stage ('maven test') {
+      		 steps {
+       			 sh 'mvn test'
+     			  }
+  		  }
 		  stage('SonarQube') {
 		 steps {
 			 withSonarQubeEnv('sonarqube-8.9.7'){
