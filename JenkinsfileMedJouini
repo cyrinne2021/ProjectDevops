@@ -41,7 +41,8 @@ pipeline {
 		 steps {
 			sh 'mvn deploy -DskipTests'
 			  }
-			  stage('Build Docker'){
+			  }
+			   stage('Build Docker'){
            	  steps{
                		 sh 'docker build -t mohamed4nour/projectdevops .'
             	}
@@ -62,5 +63,6 @@ pipeline {
                 sh 'docker-compose up -d '
      		 }
 		  }
+			 
 }
 }
