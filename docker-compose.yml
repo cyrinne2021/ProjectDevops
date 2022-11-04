@@ -15,7 +15,7 @@ services:
   springboot-app:
     depends_on:
       - mysqldb
-    build: abdallahouaili/projectdevops
+    build: ./
     restart: on-failure
     env_file: ./.env
     ports:
