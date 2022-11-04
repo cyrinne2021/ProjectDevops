@@ -1,0 +1,68 @@
+pipeline {
+	agent any
+	stages {
+		stage('Checkout GIT') {
+		 steps {
+			echo 'Pulling...';
+			 git branch: 'MedJouini',
+			 url : 'https://github.com/cyrinne2021/ProjectDevops',
+			 credentialsId:'012f7852-4790-4f58-8e42-6d991d2ad3d7';
+			  }
+		  }
+		  stage('maven clean') {
+		 steps {
+			sh 'mvn clean'
+			  }
+		  }
+		stage('maven package') {
+		 steps {
+			sh 'mvn package'
+			  }
+		  }
+		stage('maven compile') {
+		 steps {
+			sh 'mvn compile'
+			  }
+		  }
+		stage ('maven test') {
+      		 steps {
+       			 sh 'mvn test'
+     			  }
+  		  }
+		  stage('SonarQube') {
+		 steps {
+			 withSonarQubeEnv('sonarqube-8.9.7'){
+			sh 'mvn sonar:sonar'
+			 }
+			
+			  }
+		  }
+		stage('Nexus') {
+		 steps {
+			sh 'mvn deploy -DskipTests'
+			  }
+			  }
+			   stage('Build Docker'){
+           	  steps{
+               		 sh 'docker build -t mohamed4nour/projectdevops .'
+            	}
+      		  }
+		stage('Docker Login'){
+            	steps{
+			
+                sh 'docker login -u mohamed4nour -p sinina4ramos'
+            }
+        }
+		 stage('Docker Push'){
+            	 steps{	
+                	sh 'docker push mohamed4nour/projectdevops'
+          	  }
+     		   }
+		stage('Start container') {
+            	 steps {
+                sh 'docker-compose up -d '
+     		 }
+		  }
+			 
+}
+}
