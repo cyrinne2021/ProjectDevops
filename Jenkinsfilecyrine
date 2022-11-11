@@ -52,7 +52,7 @@ pipeline {
 		stage('Docker Login'){
             	steps{
 			
-                sh 'docker login -u cyrinekhezami -p cyrine 14267672'
+                sh 'docker login -u cyrinekhezami -p cycy14267672'
             }
         }
 		 stage('Docker Push'){
