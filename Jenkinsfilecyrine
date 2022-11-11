@@ -5,8 +5,8 @@ pipeline {
 		 steps {
 			echo 'Pulling...';
 			 git branch: 'cyrine',
-			 url : 'https://github.com/cyrinne2021/ProjectDevops',
-			 credentialsId:'8feda67e-6b0d-4fb6-a35a-60d892fcd8fc';
+			 url : 'https://github.com/cyrinne2021/ProjectDevops';
+			 
 			  }
 		  }
 		  
@@ -43,6 +43,27 @@ pipeline {
 		 steps {
 			sh 'mvn deploy -DskipTests'
 			  }
+		  }
+		stage('Build Docker'){
+           	  steps{
+               		 sh 'docker build -t cyrinekhezami/projectdevops .'
+            	}
+      		  }
+		stage('Docker Login'){
+            	steps{
+			
+                sh 'docker login -u cyrinekhezami -p cyrine 14267672'
+            }
+        }
+		 stage('Docker Push'){
+            	 steps{	
+                	sh 'docker push cyrinekhezami/projectdevops'
+          	  }
+     		   }
+		stage('Start container') {
+            	 steps {
+                sh 'docker-compose up -d '
+     		 }
 		  }
                
 }
