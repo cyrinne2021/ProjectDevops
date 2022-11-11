@@ -46,7 +46,7 @@ pipeline {
 		  }
 		stage('Build Docker'){
            	  steps{
-               		 sh 'docker build -t cyrinekhezami/projectdevops .'
+               		 sh 'docker build -t projetspring .'
             	}
       		  }
 		stage('Docker Login'){
