@@ -2,11 +2,10 @@ package com.esprit.examen.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,10 +13,22 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Produit implements Serializable {
 
+	public Produit(String codeProduit, String libelleProduit, float prix, Date dateCreation,
+			Date dateDerniereModification) {
+		super();
+		this.codeProduit = codeProduit;
+		this.libelleProduit = libelleProduit;
+		this.prix = prix;
+		this.dateCreation = dateCreation;
+		this.dateDerniereModification = dateDerniereModification;
+	}
+	
+	
 	/**
 	 * 
 	 */
