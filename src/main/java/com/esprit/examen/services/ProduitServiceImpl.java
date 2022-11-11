@@ -1,12 +1,10 @@
 package com.esprit.examen.services;
 
-import java.util.Date;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.esprit.examen.entities.Produit;
-import com.esprit.examen.repositories.CategorieProduitRepository;
 import com.esprit.examen.repositories.ProduitRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,8 +14,7 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Autowired
 	ProduitRepository produitRepository;
-	@Autowired
-	CategorieProduitRepository categorieProduitRepository;
+	
 
 	@Override
 	public List<Produit> retrieveAllProduits() {
