@@ -31,10 +31,8 @@ public class Operateur implements Serializable{
 	private String prenom;
 	
 	private String password;
-	public Operateur(String nom, String prenom) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-	}
-}
+	@OneToMany
+	@JsonIgnore
+	private Set<Facture> factures;
 	
+}
