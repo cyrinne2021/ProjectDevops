@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.esprit.examen.entities.Produit;
 import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.ProduitRepository;
-import com.esprit.exament.repositories.StockRepository;
+import com.esprit.examen.repositories.StockRepository;
 import com.esprit.examen.services.ProduitServiceImpl;
 import com.esprit.examen.services.StockServiceImpl;
 
