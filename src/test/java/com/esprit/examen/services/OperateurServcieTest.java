@@ -68,14 +68,14 @@ public class OperateurServcieTest {
     
    
     
-    @Test
+  /*  @Test
     public void DeleteOperateurTest() {
     	or.save(o1);
     	os.deleteOperateur(o1.getIdOperateur());
     	verify(or, times(1)).deleteById(o1.getIdOperateur());
     	System.out.println("Delete works !");
     	
-    }
+    }*/
 
     
     @Test 
