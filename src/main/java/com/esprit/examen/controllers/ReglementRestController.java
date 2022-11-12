@@ -3,6 +3,7 @@ package com.esprit.examen.controllers;
 import java.util.Date;
 import java.util.List;
 
+import com.esprit.examen.entities.Facture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -26,12 +27,14 @@ public class ReglementRestController {
     @PostMapping("/add-reglement")
     @ResponseBody
     public Reglement addReglement(@RequestBody Reglement r) {
-        return reglementService.addReglement(r);
+        Reglement reglement = reglementService.addReglement(r);
+        return reglement;
     }
     @GetMapping("/retrieve-all-reglements")
     @ResponseBody
     public List<Reglement> getReglement() {
-        return reglementService.retrieveAllReglements();
+        List<Reglement> list = reglementService.retrieveAllReglements();
+        return list;
     }
 
     // http://localhost:8089/SpringMVC/reglement/retrieve-reglement/8
@@ -48,6 +51,7 @@ public class ReglementRestController {
         return reglementService.retrieveReglementByFacture(factureId);
     }
 
+    // http://localhost:8089/SpringMVC/reglement/getChiffreAffaireEntreDeuxDate/{startDate}/{endDate}
     @GetMapping(value = "/getChiffreAffaireEntreDeuxDate/{startDate}/{endDate}")
     public float getChiffreAffaireEntreDeuxDate(
             @PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
