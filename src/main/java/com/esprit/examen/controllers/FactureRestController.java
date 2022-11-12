@@ -58,11 +58,6 @@ public class FactureRestController {
     }
 
 
-    @PutMapping(value = "/assignOperateurToFacture/{idOperateur}/{idFacture}")
-    public void assignOperateurToFacture(@PathVariable("idOperateur") Long idOperateur, @PathVariable("idFacture") Long idFacture) {
-        factureService.assignOperateurToFacture(idOperateur, idFacture);
-    }
-
 
     @GetMapping(value = "/pourcentageRecouvrement/{startDate}/{endDate}")
     public float pourcentageRecouvrement(
