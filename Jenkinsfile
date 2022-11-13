@@ -28,18 +28,5 @@ pipeline {
 		    sh """mvn -version"""
 	        }
 	    }
-       stage('SonarQube analysis') {
-		        steps {
-		        withSonarQubeEnv('SonarQube') {
-		        sh 'mvn clean clean -DskipTests package sonar:sonar'
-	                  }
-	                }
-	            }
-
-
-             stage("NEXUS") {
-        	    steps {
-		        sh 'mvn clean deploy -DskipTests'
-                      }
-                }
+  
     }}
