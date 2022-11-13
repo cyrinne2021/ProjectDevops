@@ -96,17 +96,7 @@ public class ProduitTest {
 		produitserv.deleteProduit(produit.getIdProduit());
 		verify(produitrepo).deleteById(produit.getIdProduit());
 	};
-	//expected = RuntimeException.class
-	@Test()
-	public void delete_produit_doesnt_exist() {
-		Produit produit = new Produit();
-		produit.setIdProduit(22L);
-		produit.setCodeProduit("222");
-		produit.setLibelleProduit("libelle3");
-		produit.setPrix(20);
-		given(produitrepo.findById(anyLong())).willReturn(Optional.ofNullable(null));
-		produitrepo.deleteById(produit.getIdProduit());
-		}
+
 	
 	
 /*
