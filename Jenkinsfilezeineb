@@ -44,6 +44,27 @@ pipeline {
 			sh 'mvn deploy -DskipTests'
 			  }
 		  }
+		stage('Build Docker'){
+           	  steps{
+               		 sh 'docker build -t zeinebhaffar/projectdevops .'
+            	}
+      		  }
+		stage('Docker Login'){
+            	steps{
+			
+                sh 'docker login -u zeinebhaffar -p zeineb1234'
+            }
+        }
+		 stage('Docker Push'){
+            	 steps{	
+                	sh 'docker push zeinebhaffar/projectdevops'
+          	  }
+     		   }
+		stage('Start container') {
+            	 steps {
+                sh 'docker-compose up -d '
+     		 }
+		  }
                
 }
 }
