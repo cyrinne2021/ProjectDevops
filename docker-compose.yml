@@ -37,3 +37,10 @@ services:
    restart: on-failure
    links:
       - mysqldb1
+  angular-app:
+    #The docker file in FE, builds and provides the docker image.
+    image: wassimmkadmi/projetangular:latest
+    ports:
+      - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
+    links: 
+      - springboot-app 
