@@ -43,4 +43,4 @@ services:
     ports:
       - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
     links: 
-      - springboot-app 
+      - spring_app 
