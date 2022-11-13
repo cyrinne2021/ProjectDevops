@@ -15,8 +15,7 @@ services:
   springboot-app:
     depends_on:
       - mysqldb
-    image: cyrinekhezami/projectdevops:latest
-    container_name: projectdevops
+    build: ./
     restart: on-failure
     env_file: ./.env
     ports:
@@ -27,18 +26,11 @@ services:
         "spring.datasource.username" : "$MYSQLDB_USER",
         "spring.datasource.password" : "$MYSQLDB_ROOT_PASSWORD",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-        "spring.jpa.hibernate.ddl-auto" : "update" }'
+        "spring.jpa.hibernate.ddl-auto" : "update"}'
       
     volumes:
       - .m2:/root/.m2
     stdin_open: true
     tty: true
-    angular-app:
-    #The docker file in FE, builds and provides the docker image.
-    image: cyrinekhezami/angularproject:latest
-    ports:
-      - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
-    links: 
-      - springboot-app
 volumes:
   db:
