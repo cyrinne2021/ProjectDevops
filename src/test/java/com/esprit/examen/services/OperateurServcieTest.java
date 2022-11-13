@@ -26,6 +26,8 @@ import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.OperateurRepository;
 import com.esprit.examen.repositories.StockRepository;
 import com.esprit.examen.services.ProduitServiceImpl;
+import com.esprit.examen.entities.Operateur;
+import com.esprit.examen.repositories.OperateurRepository;
 import com.esprit.examen.services.OperateurServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
