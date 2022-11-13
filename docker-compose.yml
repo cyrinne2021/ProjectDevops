@@ -15,7 +15,8 @@ services:
   springboot-app:
     depends_on:
       - mysqldb
-    build: ./
+    image: mohamed4nour/projectdevops:latest
+    container_name: projectdevops
     restart: on-failure
     env_file: ./.env
     ports:
@@ -32,5 +33,13 @@ services:
       - .m2:/root/.m2
     stdin_open: true
     tty: true
+  angular-app:
+    #The docker file in FE, builds and provides the docker image.
+    image: mohamed4nour/angularproject:latest
+    ports:
+      - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
+    links: 
+      - springboot-app
+      
 volumes:
   db:
