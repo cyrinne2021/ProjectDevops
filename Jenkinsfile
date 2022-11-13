@@ -40,4 +40,18 @@ pipeline {
 		 sh 'mvn clean -DskipTests deploy'
               }
         }
+	    stage('Docker Image Build ') {
+		    steps {
+		      script{
+			    sh 'docker build -t nizar1/backapp .'
+		    }
+		}
+		}
+		stage('Docker Image Push ') {
+            steps {
+            script {
+		    sh 'docker login -u nizar1 -p azertyazerty' 
+		    sh 'docker push nizar1/backapp'
+		    }
+		    }
     }}
