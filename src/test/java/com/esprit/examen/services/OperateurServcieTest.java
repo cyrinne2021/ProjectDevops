@@ -46,7 +46,7 @@ public class OperateurServcieTest {
 	private Operateur o2 = new Operateur("Fatma","daâs");
 	  
 	@InjectMocks
-	    IOperateurService os;
+	    OperateurServiceImpl os;
 	
     
     @Test
