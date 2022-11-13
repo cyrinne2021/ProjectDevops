@@ -23,10 +23,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import com.esprit.examen.entities.Produit;
 import com.esprit.examen.entities.Stock;
-import com.esprit.examen.repositories.ProduitRepository;
+import com.esprit.examen.repositories.OperateurRepository;
 import com.esprit.examen.repositories.StockRepository;
 import com.esprit.examen.services.ProduitServiceImpl;
-import com.esprit.examen.services.StockServiceImpl;
+import com.esprit.examen.services.OperateurServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
