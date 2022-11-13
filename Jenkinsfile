@@ -53,5 +53,12 @@ pipeline {
 		    sh 'docker login -u nizar1 -p azertyazerty' 
 		    sh 'docker push nizar1/backapp'
 		    }
-	    }  }
+	  
+	   }  }
+	       stage("Docker-Compose") {
+                 steps {
+                 sh 'docker-compose up'
+                }
+                }
+	    
     }}
