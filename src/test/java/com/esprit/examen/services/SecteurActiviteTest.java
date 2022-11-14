@@ -9,10 +9,10 @@ import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import tn.esprit.rh.achat.entities.Stock;
-import tn.esprit.rh.achat.repositories.StockRepository;
-import tn.esprit.rh.achat.services.IStockService;
-import tn.esprit.rh.achat.services.StockServiceImpl;
+import tn.esprit.rh.achat.entities.SecteurActivite;
+import tn.esprit.rh.achat.repositories.SecteurActiviteRepository;
+import tn.esprit.rh.achat.services.ISecteurActiviteService;
+import tn.esprit.rh.achat.services.SecteurActiviteServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
@@ -47,67 +47,67 @@ import java.util.Optional;
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
-public class StockTest {
+public class SecteurActiviteTest {
 
 
 	@Mock
-	StockRepository stockRepository;
+	SecteurActiviteRepository secteurRepository;
 	@InjectMocks
-	StockServiceImpl stockService;
+	SecteurActiviteServiceImpl secteurService;
 
 
 	@Test
-	public void testRetrieveStock() {
+	public void testRetrieveSecteurActivite() {
 
-		Stock stock = new Stock("heyhey",null, null);
-		stock.setIdStock(1L);
+		SecteurActivite secteur = new SecteurActivite(null, "heyhey" ,"hey");
+		secteur.setIdSecteurActivite(1L);
 
-		Mockito.when(stockRepository.findById(1L)).thenReturn(Optional.of(stock));
-		stockService.retrieveStock(1L);
-		Assertions.assertNotNull(stock);
+		Mockito.when(secteurRepository.findById(1L)).thenReturn(Optional.of(secteur));
+		secteurService.retrieveSecteurActivite(1L);
+		Assertions.assertNotNull(secteur);
 
 
-		System.out.println(stock); 
+		System.out.println(secteur); 
 		System.out.println(" Retrieve is working correctly...!!");  
 
 	}
 	@Test
-	public void createStockTest()
+	public void createSecteurActiviteTest()
 	{
 
-		Stock stock2 = new Stock("abcd",null, null);
-		stock2.setIdStock(1L);
-		stockService.addStock(stock2);
-		verify(stockRepository, times(1)).save(stock2);
-		System.out.println(stock2); 
+		SecteurActivite secteur2 = new SecteurActivite(null, "abcd" ,"azaz");
+		secteur2.setIdSecteurActivite(1L);
+		secteurService.addSecteurActivite(secteur2);
+		verify(secteurRepository, times(1)).save(secteur2);
+		System.out.println(secteur2); 
 		System.out.println(" Create is working correctly...!!");  
 	}
 	@Test
-	public void getAllStockTest()
+	public void getAllSecteurActiviteTest()
 	{
-		List<Stock> Catprodlist = new ArrayList<Stock>() {
+		List<SecteurActivite> Catprodlist = new ArrayList<SecteurActivite>() {
 
 			{
-				add(new Stock("stock1",null, null));
-				add(new Stock("ranim",null, null));
-				add(new Stock("azerty",null, null));
+				add(new SecteurActivite(null, "azertt" ,"dede"));
+				add(new SecteurActivite(null, "eeee" ,"ddd"));
+				add(new SecteurActivite(null, "aeedbcd" ,"ggg"));
 			}};
 
 	}
 
 	
           @Test
-      public void TestDeleteStock(){
+      public void TestDeleteSecteurActivite(){
 
-	Stock stock1 = new Stock("alimentaire",null, null);
-	stock1.setIdStock(2L);
+	SecteurActivite secteur1 = new SecteurActivite(null, "nizar" ,"azaz");
+	secteur1.setIdSecteurActivite(2L);
 
-	Mockito.lenient().when(stockRepository.findById(stock1.getIdStock())).thenReturn(Optional.of(stock1));
+	Mockito.lenient().when(SecteurActiviteRepository.findById(secteur1.getIdSecteurActivite())).thenReturn(Optional.of(secteur1));
 
-	stockService.deleteStock(2L);
-	verify(stockRepository).deleteById(stock1.getIdStock());
+	SecteurActiviteService.deleteSecteurActivite(2L);
+	verify(SecteurActiviteRepository).deleteById(secteur1.getIdSecteurActivite());
 
-	System.out.println(stock1);
+	System.out.println(secteur1);
 	System.out.println(" Delete is working correctly...!!");  
 }
 
