@@ -19,8 +19,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.BDDMockito.*;
+
 import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.StockRepository;
 
@@ -82,14 +81,5 @@ public class StockTest {
 		verify(sr).deleteById(stock.getIdStock());
 	};
 	
-	@Test()
-	public void should_throw_exception_when_stock_doesnt_exist() {
-		Stock stock = new Stock();
-		stock.setIdStock(90L);
-		stock.setLibelleStock("libelle4");
-		stock.setQte(20);
-		stock.setQteMin(1);
-		given(sr.findById(anyLong())).willReturn(Optional.ofNullable(null));
-		sr.deleteById(stock.getIdStock());
-		}
+	
 	}

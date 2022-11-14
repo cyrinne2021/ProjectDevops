@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.esprit.examen.entities.Stock;
-import com.esprit.examen.entities.StockRequest;
 import com.esprit.examen.services.IStockService;
 
 import io.swagger.annotations.Api;
@@ -38,13 +37,10 @@ public class StockRestController {
 
 	@PostMapping("/add-stock")
 	@ResponseBody
-	public Stock addStock(@RequestBody StockRequest s) {
-		Stock stock = new Stock ();
-		stock.setLibelleStock(s.getLibelleStock());
-		stock.setQte(s.getQte());
-		stock.setQteMin(s.getQteMin());
+	public Stock addStock(@RequestBody Stock s) {
+		
 
-		return stockService.addStock(stock);
+		return stockService.addStock(s);
 	}
 
 	@DeleteMapping("/remove-stock/{stock-id}")
@@ -57,11 +53,8 @@ public class StockRestController {
 	@PutMapping("/modify-stock")
 	@ResponseBody
 	public Stock modifyStock(@RequestBody Stock s) {
-		Stock stock = new Stock ();
-		stock.setLibelleStock(s.getLibelleStock());
-		stock.setQte(s.getQte());
-		stock.setQteMin(s.getQteMin());
-		return stockService.updateStock(stock);
+
+		return stockService.updateStock(s);
 	}
 
 	
