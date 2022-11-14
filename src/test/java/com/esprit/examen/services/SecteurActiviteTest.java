@@ -62,7 +62,7 @@ public class SecteurActiviteTest {
     	when(or.findAll()).thenReturn(Stream
     			.of(o1,o2)
     			.collect(Collectors.toList()));
-    	assertEquals(2,os.retrieveAllSecteurActivites().size());
+    	assertEquals(2,os.retrieveAllSecteurActivite().size());
     	System.out.println("Retrieve operators works !");
     }
     
