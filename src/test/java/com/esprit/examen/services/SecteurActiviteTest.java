@@ -37,7 +37,7 @@ import javax.persistence.OneToMany;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
-public class SecteurActiviteServcieTest {
+public class SecteurActiviteTest {
 	
 	@Mock
 	private SecteurActiviteRepository or;
