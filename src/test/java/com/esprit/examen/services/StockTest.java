@@ -17,24 +17,21 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.*;
 import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.StockRepository;
 
-import lombok.var;
 
 
 @SpringBootTest
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.Silent.class)
+
 public class StockTest {
 
-	 @Autowired
-	 private MockMvc mockMvc;
+
 
 	@Mock
 	StockRepository sr;
@@ -84,7 +81,7 @@ public class StockTest {
 		ss.deleteStock(stock.getIdStock());
 		verify(sr).deleteById(stock.getIdStock());
 	};
-	//expected = RuntimeException.class
+	
 	@Test()
 	public void should_throw_exception_when_stock_doesnt_exist() {
 		Stock stock = new Stock();
