@@ -28,18 +28,18 @@ pipeline {
 		    sh """mvn -version"""
 	        }
 	    }
-	      /* stage("SonarQube Analysis") {
+	       stage("SonarQube Analysis") {
             steps {
               withSonarQubeEnv('SonarQube') {
                 sh 'mvn clean -DskipTests package sonar:sonar'
               }
             }
-          }*/
-  /*stage("NEXUS") {
+          }
+  stage("NEXUS") {
         	steps {
 		 sh 'mvn clean -DskipTests deploy'
               }
-        }*/
+        }
 	    stage("TEST JUNIT"){
 		steps{
 		 sh'mvn test -DskipTests '
@@ -53,14 +53,14 @@ pipeline {
 		    }
 		}
 		}
-		/*stage('Docker Image Push ') {
+		stage('Docker Image Push ') {
             steps {
             script {
 		    sh 'docker login -u nizar1 -p azertyazerty' 
 		    sh 'docker push nizar1/backapp'
 		    }
 	  
-	   }  }*/
+	   }  }
 	       stage("Docker-Compose") {
                  steps {
                  sh 'docker-compose up'
