@@ -42,8 +42,8 @@ public class SecteurActiviteServcieTest {
 	@Mock
 	private SecteurActiviteRepository or;
 	
-	private SecteurActivite o1 = new SecteurActivite(null,"fatma","daâs");
-	private SecteurActivite o2 = new SecteurActivite(null,"Fatma","daâs");
+	private SecteurActivite o1 = new SecteurActivite(null,"hhh","nizar");
+	private SecteurActivite o2 = new SecteurActivite(null,"hhh","mahmoudi");
 	  
 	@InjectMocks
 	    SecteurActiviteServiceImpl os;
