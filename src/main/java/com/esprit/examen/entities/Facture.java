@@ -35,14 +35,15 @@ public class Facture implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateDerniereModificationFacture;
 	private Boolean archivee;
-	@OneToMany(mappedBy = "facture")
-	private Set<DetailFacture> detailsFacture;
+	//@OneToMany(mappedBy = "factures")
+	//private Set<DetailFacture> detailsFacture;
     @ManyToOne
     @JsonIgnore
     private Fournisseur fournisseur;
-    @OneToMany(mappedBy="facture")
+    @OneToMany(mappedBy = "facture")
     @JsonIgnore
-    private Set<Reglement> reglements;
+    private Set<Reglement> reglemnts;
+    
 
 	
 }
