@@ -104,7 +104,21 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+<artifactId>maven-resources-plugin</artifactId>
+<version>3.0.2</version>
+</plugin>
 		</plugins>
 	</build>
+<distributionManagement>
+    <repository>
+        <id>deploymentRepo</id>
+        <url>http://172.10.0.140:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>deploymentRepo</id>
+        <url>http://172.10.0.140:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
 
 </project>

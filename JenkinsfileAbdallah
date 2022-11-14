@@ -21,14 +21,13 @@ pipeline {
        			 sh 'mvn test'
      			  }
   		  }
-		  stage('SonarQube') {
-		 steps {
-			 withSonarQubeEnv('sonarqube-8.9.7'){
-			sh 'mvn sonar:sonar'
-			 }
-			
-			  }
-		  }
+		 stage("Maven Sonarqube") {
+            steps {
+                script {
+                    sh "mvn -f'pom.xml' sonar:sonar -Dsonar.login=admin -Dsonar.password=Admin"
+                }
+            }
+        }
 		stage('Nexus') {
 		 steps {
 			sh 'mvn deploy -DskipTests'
