@@ -40,6 +40,12 @@ pipeline {
 		 sh 'mvn clean -DskipTests deploy'
               }
         }*/
+	    stage("TEST JUNIT"){
+		steps{
+		 sh'mvn test -DskipTests '
+		}
+		
+	}
 	    stage('Docker Image Build ') {
 		    steps {
 		      script{
