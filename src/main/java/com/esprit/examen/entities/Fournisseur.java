@@ -1,19 +1,10 @@
 package com.esprit.examen.entities;
 
 import java.io.Serializable;
-import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,7 +26,6 @@ public class Fournisseur implements Serializable {
 	private Long idFournisseur;
 	private String code;
 	private String libelle;
-/*	@Enumerated(EnumType.STRING)
-	private CategorieFournisseur  categorieFournisseur;*/
 		
 }
+
