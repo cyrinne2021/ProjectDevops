@@ -27,8 +27,7 @@ services:
    ports:
     - 8091:8091
    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/tpachato?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-      MYSQL_USER: root
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/tpachato??useSSL=false&allowPublicKeyRetrieval=true
       MYSQL_ROOT_PASSWORD: root
       MYSQL_PASSWORD: root
       MYSQL_DATABASE: tpachato
