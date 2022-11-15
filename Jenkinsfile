@@ -35,11 +35,11 @@ pipeline {
               }
             }
           }
-  stage("NEXUS") {
-        	steps {
-		 sh 'mvn clean -DskipTests deploy'
-              }
-        }
+ // stage("NEXUS") {
+        	//steps {
+		// sh 'mvn clean -DskipTests deploy'
+             // }
+     //   }
 	    stage("TEST JUNIT"){
 		steps{
 		 sh'mvn test -DskipTests '
